@@ -1,0 +1,17 @@
+{:deps {org.clojure/clojure {:mvn/version "1.9.0"}
+
+        org.clojure/clojurescript
+        ;;{:mvn/version "1.10.439"}
+        {:git/url "https://github.com/mfikes/clojurescript" :sha "0920b494676c0b74942a15d700e6c5fe4bd56255"}
+        rum {:mvn/version "0.11.2" :exclusions [sablono/sablono]}
+
+        com.bhauman/figwheel-main {:mvn/version "0.1.8"}
+        com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+        com.bhauman/cljs-test-display {:mvn/version "0.1.1"}}
+
+ ;; setup some development paths
+ :paths ["src" "resources" "test"
+         "vendor/hicada/src"]
+
+ ;; clj -A:figwheel
+ :aliases {:figwheel {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}}}

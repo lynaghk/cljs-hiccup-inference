@@ -1,0 +1,3 @@
+[submodule "vendor/hicada"]
+	path = vendor/hicada
+	url = ssh://git@github.com/lynaghk/hicada
