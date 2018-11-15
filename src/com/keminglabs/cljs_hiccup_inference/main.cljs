@@ -18,6 +18,11 @@
   [:span "Some react component"])
 
 
+(defn string-lookup-hinted ^String
+  [x]
+  (:a-string x))
+
+
 (rum/defc *app
   []
   [:div
@@ -39,7 +44,22 @@
 
    ;;local safe to inline
    (let [foo 1]
-     foo)])
+     foo)
+
+
+   ;;;;;;;;;;;;;;;;;;;;
+   ;;TODO cljs type inference incomplete?
+   ;;These should all be knowable
+
+   (pr-str [])
+
+   (string-lookup-hinted {:a-string "foo"})
+
+   (:a-string {:a-string "foo"})
+
+   (str "abc" "...")
+
+   ])
 
 
 (rum/mount (*app) (.getElementById js/document "app"))
