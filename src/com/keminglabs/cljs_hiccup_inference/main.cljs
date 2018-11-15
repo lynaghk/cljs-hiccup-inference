@@ -18,7 +18,8 @@
   [:span "Some react component"])
 
 
-(defn string-lookup-hinted ^String
+;;NOTE: unlike in JVM Clojure, hint is lowercase and comes before var.
+(defn ^string string-lookup-hinted
   [x]
   (:a-string x))
 
@@ -46,14 +47,14 @@
    (let [foo 1]
      foo)
 
+   (string-lookup-hinted {:a-string "foo"})
+
 
    ;;;;;;;;;;;;;;;;;;;;
    ;;TODO cljs type inference incomplete?
    ;;These should all be knowable
 
    (pr-str [])
-
-   (string-lookup-hinted {:a-string "foo"})
 
    (:a-string {:a-string "foo"})
 
