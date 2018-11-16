@@ -3,6 +3,13 @@
   (:require [rum.core :as rum]))
 
 
+(defn two-arity
+  "Ignore this browser event? Used so that things don't happen when people are typing in an <input> or whatever."
+  ([one] (two-arity one 2))
+
+  ([one two]
+   (str one "-" two)))
+
 (defn fn-that-returns-string
   []
   "Fn that returns string")
@@ -59,7 +66,8 @@
    (:a-string {:a-string "foo"})
 
    (str "abc" "...")
-
+   
+   (two-arity 1)
    ])
 
 

@@ -2,7 +2,7 @@
 
         org.clojure/clojurescript
         ;;{:mvn/version "1.10.439"}
-        {:git/url "https://github.com/mfikes/clojurescript" :sha "0920b494676c0b74942a15d700e6c5fe4bd56255"}
+        {:git/url "https://github.com/mfikes/clojurescript" :sha "e48f5babd91276a1461d530d601e897032da81e4"}
         rum {:mvn/version "0.11.2" :exclusions [sablono/sablono]}
 
         com.bhauman/figwheel-main {:mvn/version "0.1.8"}
@@ -10,7 +10,7 @@
         com.bhauman/cljs-test-display {:mvn/version "0.1.1"}}
 
  ;; setup some development paths
- :paths ["src" "resources" "test"
+ :paths ["src" "resources" "test" "target"
          "vendor/hicada/src"]
 
  ;; clj -A:figwheel
