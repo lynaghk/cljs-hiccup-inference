@@ -4,11 +4,12 @@
 
 
 (defn two-arity
-  "Ignore this browser event? Used so that things don't happen when people are typing in an <input> or whatever."
-  ([one] (two-arity one 2))
+  ([one]
+   (two-arity one 2))
 
   ([one two]
    (str one "-" two)))
+
 
 (defn fn-that-returns-string
   []
@@ -35,39 +36,44 @@
   []
   [:div
 
-   ;;should be inferred safe to inline
+
+   ;;;;;;;;;;;;;;;;;;;
+   ;;These should all be automatically inlined thanks to cljs type inference
+
    (fn-that-returns-string)
 
-   ;;TODO: this is safe to inline (it's another react component); can we propagate this via type inference, or does there need to be another mechanism?
-   (a-component)
 
-   ;;this should inline because of my `:interpret-or-inline-fn` option that chooses based on name
-   (*a-prefixed-component)
-
-   ;;this must be interpreted; should emit warning
-   (vector :div 1 2 3)
-
-   ;;with metadata, shouldn't emit warning
-   ^:interpret (vector :div 1 2 3)
-
-   ;;local safe to inline
    (let [foo 1]
      foo)
 
    (string-lookup-hinted {:a-string "foo"})
 
-
-   ;;;;;;;;;;;;;;;;;;;;
-   ;;TODO cljs type inference incomplete?
-   ;;These should all be knowable
-
    (pr-str [])
 
-   (:a-string {:a-string "foo"})
-
    (str "abc" "...")
-   
+
+   ;;TODO: this should have been resolved by https://dev.clojure.org/jira/browse/CLJS-2901 but doesn't seem to work.
    (two-arity 1)
+
+
+   ;;;;;;;;;;;;;;;;;
+   ;;Other examples
+
+   ;;Have to annotate this, but it might be possible to update Rum to add a type hint to the defined var so that we can automatically inline calls to things we know are react components.
+   ^:inline (a-component)
+
+   ;;Inlines because of `:interpret-or-inline-fn` option that chooses based on name
+   (*a-prefixed-component)
+
+   ;;this sort of stuff pretty much has to be interpreted at runtime, unless you want to implement abstract interpretation in the ClojureScript compiler
+   ^:interpret (vector :div 1 2 3)
+
+   ;;cljs type inference isn't this good yet.
+   ^:inline (:a-string {:a-string "foo"})
+
+
+
+
    ])
 
 

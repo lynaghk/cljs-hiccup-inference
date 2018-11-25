@@ -2,7 +2,9 @@
 
         org.clojure/clojurescript
         ;;{:mvn/version "1.10.439"}
-        {:git/url "https://github.com/mfikes/clojurescript" :sha "e48f5babd91276a1461d530d601e897032da81e4"}
+        ;;{:git/url "https://github.com/mfikes/clojurescript" :sha "e48f5babd91276a1461d530d601e897032da81e4"}
+        {:git/url "https://github.com/clojure/clojurescript" :sha "a373039ae82a6a9d6973ce87b08ffb46809ab40a"}
+
         rum {:mvn/version "0.11.2" :exclusions [sablono/sablono]}
 
         com.bhauman/figwheel-main {:mvn/version "0.1.8"}
