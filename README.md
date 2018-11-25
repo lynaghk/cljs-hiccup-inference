@@ -7,14 +7,20 @@ This is a minimal example repo demonstrating a cljs hiccup compiler that:
 
 For background, see: https://kevinlynagh.com/notes/fast-cljs-react-templates/
 
-
 ## Run
 
 You'll need [Clojure CLI](https://clojure.org/guides/getting_started).
 Then run:
 
+    git submodule update --init
     clj -A:figwheel
     
-And Figwheel will open a live-reloading page in your default browser.
+and Figwheel will open a live-reloading page in your default browser.
 
-Test templates are defined in src/com/keminglabs/cljs_hiccup_inference/main.cljs
+Then play with the templates defined in [src/com/keminglabs/cljs_hiccup_inference/main.cljs](/src/com/keminglabs/cljs_hiccup_inference/main.cljs).
+
+
+## Support
+
+If you like fast things and want to support the author, check out [Finda](https://keminglabs.com/finda/).
+
