@@ -1,2 +1,2 @@
-^{:watch-dirs ["src"]}
+^{:watch-dirs ["src" "vendor/hicada/src"]}
 {:main com.keminglabs.cljs-hiccup-inference.main}

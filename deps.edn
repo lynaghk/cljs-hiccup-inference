@@ -6,8 +6,7 @@
         rum {:mvn/version "0.11.2" :exclusions [sablono/sablono]}
 
         com.bhauman/figwheel-main {:mvn/version "0.1.8"}
-        com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
-        com.bhauman/cljs-test-display {:mvn/version "0.1.1"}}
+        com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
 
  ;; setup some development paths
  :paths ["src" "resources" "test" "target"
